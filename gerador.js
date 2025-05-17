@@ -31,5 +31,20 @@ function gerarsenha(tamanho, opcoes) {
 }
 
 function perguntar() {
-    rl.question('Qual é o tamanho da senha? ', (tamanhoStr) => {const}
+    rl.question('Qual é o tamanho da senha? ', (tamanhoStr) => {const tamanho = parseInt(tamanhoStr);
+
+    if (isNaN(tamanho) || tamanho < 4) {
+        console.log('Por favor, digite um número válido maior que 3.');
+        return rl.close();
+    }
+
+    rl.question('Incluir maiúsculas? (s/n) ', (m) => {
+        rl.question('Incluir minúsculas? (s/n) ', (mi) => {
+            rl.question('Incluir números? (s/n) ', (n) => {
+                rl.question('Incluir símbolos? (s/n) ', (s) => {
+                    
+                
+        }
+
+    }
 }
