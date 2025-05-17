@@ -42,9 +42,22 @@ function perguntar() {
         rl.question('Incluir minúsculas? (s/n) ', (mi) => {
             rl.question('Incluir números? (s/n) ', (n) => {
                 rl.question('Incluir símbolos? (s/n) ', (s) => {
-                    
-                
-        }
+                    const opcoes = {
+                        maiusculas: m.toLowerCase() === 's',
+                        minusculas: mi.toLowerCase() === 's',
+                        numeros: n.toLowerCase() === 's',
+                        simbolos: s.toLowerCase() === 's'
+                    };
 
-    }
+                    const senha = gerarsenha(tamanho, opcoes);
+                    console.log('\nSenha gerada: ', senha);
+                    rl.close();
+                    });
+                });
+            });    
+        });
+
+    });
 }
+
+perguntar();
