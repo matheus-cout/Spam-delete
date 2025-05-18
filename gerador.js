@@ -31,32 +31,34 @@ function gerarsenha(tamanho, opcoes) {
 }
 
 function perguntar() {
-    rl.question('Qual é o tamanho da senha? ', (tamanhoStr) => {const tamanho = parseInt(tamanhoStr);
+    rl.question('Qual é o tamanho da senha? ', (tamanhoStr) => {
+        let tamanho;
 
-    if (isNaN(tamanho) || tamanho < 4) {
-        console.log('Por favor, digite um número válido maior que 3.');
-        return rl.close();
-    }
+        tamanho = parseInt(tamanhoStr);
 
-    rl.question('Incluir maiúsculas? (s/n) ', (m) => {
-        rl.question('Incluir minúsculas? (s/n) ', (mi) => {
-            rl.question('Incluir números? (s/n) ', (n) => {
-                rl.question('Incluir símbolos? (s/n) ', (s) => {
-                    const opcoes = {
-                        maiusculas: m.toLowerCase() === 's',
-                        minusculas: mi.toLowerCase() === 's',
-                        numeros: n.toLowerCase() === 's',
-                        simbolos: s.toLowerCase() === 's'
-                    };
+        if (isNaN(tamanho) || tamanho < 4) {
+            console.log('Por favor, digite um número válido maior que 3.');
+            return rl.close();
+        }
 
-                    const senha = gerarsenha(tamanho, opcoes);
-                    console.log('\nSenha gerada: ', senha);
-                    rl.close();
+        rl.question('Incluir maiúsculas? (s/n) ', (m) => {
+            rl.question('Incluir minúsculas? (s/n) ', (mi) => {
+                rl.question('Incluir números? (s/n) ', (n) => {
+                    rl.question('Incluir símbolos? (s/n) ', (s) => {
+                        const opcoes = {
+                            maiusculas: m.toLowerCase() === 's',
+                            minusculas: mi.toLowerCase() === 's',
+                            numeros: n.toLowerCase() === 's',
+                            simbolos: s.toLowerCase() === 's'
+                        };
+
+                        const senha = gerarsenha(tamanho, opcoes);
+                        console.log('\nSenha gerada: ', senha);
+                        rl.close();
+                        });
                     });
-                });
-            });    
-        });
-
+                });    
+            });
     });
 }
 
