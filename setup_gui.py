@@ -44,18 +44,35 @@ includes = [
     "gui_app"
 ]
 
+# Arquivos Python a incluir explicitamente
+python_files = [
+    "launcher.py",
+    "credential_prompt.py",
+    "credentials_manager.py",
+    "delete_spam_emails.py",
+    "check_spam_count.py",
+    "verificar_spam.py",
+    "gui_app.py"
+]
+
+# Adicionar arquivos Python à lista de arquivos a incluir
+for py_file in python_files:
+    include_files.append(py_file)
+
 # Opções de build
 build_options = {
     "packages": packages,
     "includes": includes,
     "include_files": include_files,
-    "build_exe": os.path.join(base_dir, "build", "exe.win-amd64-3.13")
+    "build_exe": os.path.join(base_dir, "build", "exe.win-amd64-3.13"),
+    "zip_include_packages": ["*"],
+    "zip_exclude_packages": []
 }
 
 # Configuração do executável
 executables = [
     Executable(
-        script="gui_app.py",
+        script="launcher.py",
         base="Win32GUI",  # Sem console para aplicação GUI
         target_name="GerenciadorDeSpam.exe",
         icon=os.path.join("icones", "gerenciador_spam.ico"),

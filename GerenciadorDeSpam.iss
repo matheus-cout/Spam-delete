@@ -47,6 +47,14 @@ Source: "build\exe.win-amd64-3.13\lib\*"; DestDir: "{app}\lib"; Flags: ignorever
 Source: "icones\*"; DestDir: "{app}\icones"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Arquivos de dados
 Source: "data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs skipifsourcedoesntexist
+; Arquivos Python
+Source: "launcher.py"; DestDir: "{app}"; Flags: ignoreversion
+Source: "credential_prompt.py"; DestDir: "{app}"; Flags: ignoreversion
+Source: "credentials_manager.py"; DestDir: "{app}"; Flags: ignoreversion
+Source: "delete_spam_emails.py"; DestDir: "{app}"; Flags: ignoreversion
+Source: "check_spam_count.py"; DestDir: "{app}"; Flags: ignoreversion
+Source: "verificar_spam.py"; DestDir: "{app}"; Flags: ignoreversion
+Source: "gui_app.py"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
