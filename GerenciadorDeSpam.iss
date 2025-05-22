@@ -44,48 +44,20 @@ Source: "build\exe.win-amd64-3.13\python313.dll"; DestDir: "{app}"; Flags: ignor
 Source: "build\exe.win-amd64-3.13\README_SPAM_DELETION.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "build\exe.win-amd64-3.13\configuracao_exclusao_automatica_spam.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "build\exe.win-amd64-3.13\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "icones\gerenciador_spam.ico"; DestDir: "{app}\icones"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\icones\gerenciador_spam.ico"
 Name: "{group}\Guia de Configuração"; Filename: "{app}\configuracao_exclusao_automatica_spam.md"
 Name: "{group}\README"; Filename: "{app}\README_SPAM_DELETION.md"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\icones\gerenciador_spam.ico"; Tasks: desktopicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\icones\gerenciador_spam.ico"; Tasks: quicklaunchicon
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
-[Code]
-// Função para verificar se o Gmail está configurado no sistema
-function IsGmailConfigured(): Boolean;
-begin
-  // Esta é uma função simplificada. Em um cenário real, você poderia
-  // verificar se o Outlook ou outro cliente de email está configurado com Gmail
-  Result := True;
-end;
-
-// Função para exibir informações adicionais durante a instalação
-procedure InitializeWizard;
-var
-  InfoPage: TNewNotebookPage;
-  InfoLabel: TLabel;
-begin
-  // Criar uma página de informações
-  InfoPage := WizardForm.PagesNotebook.Add;
-
-  // Adicionar um rótulo com informações
-  InfoLabel := TLabel.Create(WizardForm);
-  InfoLabel.Parent := InfoPage;
-  InfoLabel.Left := WizardForm.ClientWidth div 10;
-  InfoLabel.Top := WizardForm.ClientHeight div 4;
-  InfoLabel.Width := WizardForm.ClientWidth * 8 div 10;
-  InfoLabel.Height := WizardForm.ClientHeight div 2;
-  InfoLabel.Caption := 'O Gerenciador de Spam do Gmail é uma ferramenta que permite verificar e excluir emails de spam automaticamente.' + #13#10#13#10 +
-                       'Para usar esta ferramenta, você precisa ter uma conta do Gmail e ter configurado uma senha de aplicativo.' + #13#10#13#10 +
-                       'Após a instalação, você pode configurar o programa para ser executado automaticamente em intervalos regulares usando o Agendador de Tarefas do Windows.';
-
-  // Adicionar a página ao assistente
-  WizardForm.PagesNotebook.SelectPage(InfoPage.Index);
-end;
+[Messages]
+WelcomeLabel2=Este assistente irá guiá-lo através da instalação do [name].%n%nO Gerenciador de Spam do Gmail é uma ferramenta que permite verificar e excluir emails de spam automaticamente.%n%nPara usar esta ferramenta, você precisa ter uma conta do Gmail e ter configurado uma senha de aplicativo.%n%nApós a instalação, você pode configurar o programa para ser executado automaticamente em intervalos regulares usando o Agendador de Tarefas do Windows.
+FinishedLabel=A instalação do [name] foi concluída com sucesso.%n%nClique em Concluir para sair do assistente de instalação.
