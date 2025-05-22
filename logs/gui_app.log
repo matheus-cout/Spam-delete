@@ -1,0 +1,18 @@
+2025-05-22 16:09:11,336 - INFO - Iniciando aplicação GUI
+2025-05-22 16:09:11,477 - INFO - Módulo credential_prompt importado com sucesso
+2025-05-22 16:09:11,478 - INFO - Módulo credentials_manager importado com sucesso
+2025-05-22 16:09:11,561 - INFO - Módulo delete_spam_emails importado com sucesso
+2025-05-22 16:09:11,562 - INFO - Módulo check_spam_count importado com sucesso
+2025-05-22 16:09:11,564 - INFO - Módulo verificar_spam importado com sucesso
+2025-05-22 16:09:11,566 - INFO - Iniciando função main()
+2025-05-22 16:09:11,958 - INFO - Inicializando GmailSpamManagerApp
+2025-05-22 16:09:11,959 - INFO - Ícone encontrado: icones\gerenciador_spam.ico
+2025-05-22 16:09:12,032 - INFO - Criando widgets da interface
+2025-05-22 16:09:12,058 - INFO - Criando widgets da interface
+2025-05-22 16:09:12,063 - INFO - Obtendo lista de emails salvos
+2025-05-22 16:09:12,065 - INFO - Emails salvos encontrados: 1
+2025-05-22 16:09:12,081 - INFO - Criando combobox para emails salvos
+2025-05-22 16:09:12,115 - INFO - Widgets criados com sucesso
+2025-05-22 16:09:12,119 - INFO - Iniciando processamento da fila de saída
+2025-05-22 16:09:12,120 - INFO - Carregando credenciais salvas
+2025-05-22 16:09:12,121 - INFO - Inicialização concluída com sucesso

@@ -14,13 +14,61 @@ import os
 import sys
 import io
 import contextlib
-import credential_prompt
-import credentials_manager as cm
+import logging
+import traceback
+
+# Configurar logging
+log_dir = "logs"
+os.makedirs(log_dir, exist_ok=True)
+log_file = os.path.join(log_dir, "gui_app.log")
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(log_file),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
+# Log de inicialização
+logging.info("Iniciando aplicação GUI")
+
+try:
+    import credential_prompt
+    logging.info("Módulo credential_prompt importado com sucesso")
+except Exception as e:
+    logging.error(f"Erro ao importar credential_prompt: {e}")
+    traceback.print_exc(file=open(log_file, "a"))
+
+try:
+    import credentials_manager as cm
+    logging.info("Módulo credentials_manager importado com sucesso")
+except Exception as e:
+    logging.error(f"Erro ao importar credentials_manager: {e}")
+    traceback.print_exc(file=open(log_file, "a"))
 
 # Importar os módulos de funcionalidade
-import delete_spam_emails
-import check_spam_count
-import verificar_spam
+try:
+    import delete_spam_emails
+    logging.info("Módulo delete_spam_emails importado com sucesso")
+except Exception as e:
+    logging.error(f"Erro ao importar delete_spam_emails: {e}")
+    traceback.print_exc(file=open(log_file, "a"))
+
+try:
+    import check_spam_count
+    logging.info("Módulo check_spam_count importado com sucesso")
+except Exception as e:
+    logging.error(f"Erro ao importar check_spam_count: {e}")
+    traceback.print_exc(file=open(log_file, "a"))
+
+try:
+    import verificar_spam
+    logging.info("Módulo verificar_spam importado com sucesso")
+except Exception as e:
+    logging.error(f"Erro ao importar verificar_spam: {e}")
+    traceback.print_exc(file=open(log_file, "a"))
 
 # Classe para redirecionar a saída para a interface gráfica
 class TextRedirector:
@@ -36,95 +84,128 @@ class TextRedirector:
 
 class GmailSpamManagerApp:
     def __init__(self, root):
-        self.root = root
-        self.root.title("Gerenciador de Spam do Gmail")
-        self.root.geometry("800x600")
-        self.root.minsize(700, 500)
+        try:
+            logging.info("Inicializando GmailSpamManagerApp")
+            self.root = root
+            self.root.title("Gerenciador de Spam do Gmail")
+            self.root.geometry("800x600")
+            self.root.minsize(700, 500)
 
-        # Configurar ícone se disponível
-        icon_path = os.path.join("icones", "gerenciador_spam.ico")
-        if os.path.exists(icon_path):
-            self.root.iconbitmap(icon_path)
+            # Configurar ícone se disponível
+            icon_path = os.path.join("icones", "gerenciador_spam.ico")
+            if os.path.exists(icon_path):
+                logging.info(f"Ícone encontrado: {icon_path}")
+                self.root.iconbitmap(icon_path)
+            else:
+                logging.warning(f"Ícone não encontrado: {icon_path}")
 
-        # Variáveis
-        self.email_var = tk.StringVar()
-        self.password_var = tk.StringVar()
-        self.remember_credentials = tk.BooleanVar(value=True)
-        self.output_queue = queue.Queue()
-        self.running_thread = None
+            # Variáveis
+            self.email_var = tk.StringVar()
+            self.password_var = tk.StringVar()
+            self.remember_credentials = tk.BooleanVar(value=True)
+            self.output_queue = queue.Queue()
+            self.running_thread = None
 
-        # Criar interface
-        self.create_widgets()
+            logging.info("Criando widgets da interface")
+            # Criar interface
+            self.create_widgets()
 
-        # Iniciar processamento da fila de saída
-        self.process_output_queue()
+            logging.info("Iniciando processamento da fila de saída")
+            # Iniciar processamento da fila de saída
+            self.process_output_queue()
 
-        # Carregar credenciais salvas
-        self.load_saved_credentials()
+            logging.info("Carregando credenciais salvas")
+            # Carregar credenciais salvas
+            self.load_saved_credentials()
+
+            logging.info("Inicialização concluída com sucesso")
+        except Exception as e:
+            logging.error(f"Erro durante a inicialização da aplicação: {e}")
+            traceback.print_exc(file=open(log_file, "a"))
+            messagebox.showerror("Erro de Inicialização",
+                               f"Ocorreu um erro durante a inicialização da aplicação:\n{e}\n\nConsulte o arquivo de log para mais detalhes.")
 
     def create_widgets(self):
-        # Frame principal
-        main_frame = ttk.Frame(self.root, padding="10")
-        main_frame.pack(fill=tk.BOTH, expand=True)
+        try:
+            logging.info("Criando widgets da interface")
 
-        # Área de credenciais
-        cred_frame = ttk.LabelFrame(main_frame, text="Credenciais do Gmail", padding="10")
-        cred_frame.pack(fill=tk.X, padx=5, pady=5)
+            # Frame principal
+            main_frame = ttk.Frame(self.root, padding="10")
+            main_frame.pack(fill=tk.BOTH, expand=True)
 
-        # Dropdown de emails salvos
-        saved_emails = cm.list_saved_emails()
-        email_frame = ttk.Frame(cred_frame)
-        email_frame.pack(fill=tk.X, pady=5)
+            # Área de credenciais
+            cred_frame = ttk.LabelFrame(main_frame, text="Credenciais do Gmail", padding="10")
+            cred_frame.pack(fill=tk.X, padx=5, pady=5)
 
-        ttk.Label(email_frame, text="Email:").pack(side=tk.LEFT, padx=(0, 5))
+            # Dropdown de emails salvos
+            try:
+                logging.info("Obtendo lista de emails salvos")
+                saved_emails = cm.list_saved_emails()
+                logging.info(f"Emails salvos encontrados: {len(saved_emails)}")
+            except Exception as e:
+                logging.error(f"Erro ao obter emails salvos: {e}")
+                saved_emails = []
 
-        if saved_emails:
-            self.email_combo = ttk.Combobox(email_frame, textvariable=self.email_var, values=saved_emails)
-            self.email_combo.pack(side=tk.LEFT, fill=tk.X, expand=True)
-            self.email_combo.bind("<<ComboboxSelected>>", self.on_email_selected)
-        else:
-            ttk.Entry(email_frame, textvariable=self.email_var).pack(side=tk.LEFT, fill=tk.X, expand=True)
+            email_frame = ttk.Frame(cred_frame)
+            email_frame.pack(fill=tk.X, pady=5)
 
-        # Campo de senha
-        pass_frame = ttk.Frame(cred_frame)
-        pass_frame.pack(fill=tk.X, pady=5)
+            ttk.Label(email_frame, text="Email:").pack(side=tk.LEFT, padx=(0, 5))
 
-        ttk.Label(pass_frame, text="Senha:").pack(side=tk.LEFT, padx=(0, 5))
-        self.password_entry = ttk.Entry(pass_frame, textvariable=self.password_var, show="*")
-        self.password_entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
+            if saved_emails:
+                logging.info("Criando combobox para emails salvos")
+                self.email_combo = ttk.Combobox(email_frame, textvariable=self.email_var, values=saved_emails)
+                self.email_combo.pack(side=tk.LEFT, fill=tk.X, expand=True)
+                self.email_combo.bind("<<ComboboxSelected>>", self.on_email_selected)
+            else:
+                logging.info("Criando campo de entrada para email")
+                ttk.Entry(email_frame, textvariable=self.email_var).pack(side=tk.LEFT, fill=tk.X, expand=True)
 
-        # Checkbox para lembrar credenciais e botão para limpar campos
-        cred_options_frame = ttk.Frame(cred_frame)
-        cred_options_frame.pack(fill=tk.X, pady=5)
+            # Campo de senha
+            pass_frame = ttk.Frame(cred_frame)
+            pass_frame.pack(fill=tk.X, pady=5)
 
-        ttk.Checkbutton(cred_options_frame, text="Lembrar credenciais", variable=self.remember_credentials).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(cred_options_frame, text="Limpar Campos", command=self.clear_credentials).pack(side=tk.LEFT)
+            ttk.Label(pass_frame, text="Senha:").pack(side=tk.LEFT, padx=(0, 5))
+            self.password_entry = ttk.Entry(pass_frame, textvariable=self.password_var, show="*")
+            self.password_entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
 
-        # Área de ações
-        action_frame = ttk.LabelFrame(main_frame, text="Ações", padding="10")
-        action_frame.pack(fill=tk.X, padx=5, pady=5)
+            # Checkbox para lembrar credenciais e botão para limpar campos
+            cred_options_frame = ttk.Frame(cred_frame)
+            cred_options_frame.pack(fill=tk.X, pady=5)
 
-        # Botões de ação
-        btn_frame = ttk.Frame(action_frame)
-        btn_frame.pack(fill=tk.X, pady=5)
+            ttk.Checkbutton(cred_options_frame, text="Lembrar credenciais", variable=self.remember_credentials).pack(side=tk.LEFT, padx=(0, 10))
+            ttk.Button(cred_options_frame, text="Limpar Campos", command=self.clear_credentials).pack(side=tk.LEFT)
 
-        ttk.Button(btn_frame, text="Verificar Spam", command=self.check_spam).pack(side=tk.LEFT, padx=5)
-        ttk.Button(btn_frame, text="Excluir Spam", command=self.delete_spam).pack(side=tk.LEFT, padx=5)
-        ttk.Button(btn_frame, text="Parar", command=self.stop_operation).pack(side=tk.LEFT, padx=5)
+            # Área de ações
+            action_frame = ttk.LabelFrame(main_frame, text="Ações", padding="10")
+            action_frame.pack(fill=tk.X, padx=5, pady=5)
 
-        # Área de saída
-        output_frame = ttk.LabelFrame(main_frame, text="Saída", padding="10")
-        output_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+            # Botões de ação
+            btn_frame = ttk.Frame(action_frame)
+            btn_frame.pack(fill=tk.X, pady=5)
 
-        # Área de texto com rolagem
-        self.output_text = scrolledtext.ScrolledText(output_frame, wrap=tk.WORD, height=15)
-        self.output_text.pack(fill=tk.BOTH, expand=True)
-        self.output_text.config(state=tk.DISABLED)
+            ttk.Button(btn_frame, text="Verificar Spam", command=self.check_spam).pack(side=tk.LEFT, padx=5)
+            ttk.Button(btn_frame, text="Excluir Spam", command=self.delete_spam).pack(side=tk.LEFT, padx=5)
+            ttk.Button(btn_frame, text="Parar", command=self.stop_operation).pack(side=tk.LEFT, padx=5)
 
-        # Barra de status
-        self.status_var = tk.StringVar(value="Pronto")
-        status_bar = ttk.Label(self.root, textvariable=self.status_var, relief=tk.SUNKEN, anchor=tk.W)
-        status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+            # Área de saída
+            output_frame = ttk.LabelFrame(main_frame, text="Saída", padding="10")
+            output_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+
+            # Área de texto com rolagem
+            self.output_text = scrolledtext.ScrolledText(output_frame, wrap=tk.WORD, height=15)
+            self.output_text.pack(fill=tk.BOTH, expand=True)
+            self.output_text.config(state=tk.DISABLED)
+
+            # Barra de status
+            self.status_var = tk.StringVar(value="Pronto")
+            status_bar = ttk.Label(self.root, textvariable=self.status_var, relief=tk.SUNKEN, anchor=tk.W)
+            status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+
+            logging.info("Widgets criados com sucesso")
+        except Exception as e:
+            logging.error(f"Erro ao criar widgets: {e}")
+            traceback.print_exc(file=open(log_file, "a"))
+            messagebox.showerror("Erro", f"Erro ao criar a interface: {e}\n\nConsulte o arquivo de log para mais detalhes.")
 
     def load_saved_credentials(self):
         """Mostra as credenciais salvas no dropdown, mas não preenche os campos automaticamente."""
@@ -289,4 +370,24 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
-    main()
+    try:
+        logging.info("Iniciando função main()")
+        main()
+    except Exception as e:
+        logging.error(f"Erro ao iniciar o programa: {e}")
+        traceback.print_exc(file=open(log_file, "a"))
+
+        # Exibir mensagem de erro em uma janela
+        try:
+            import tkinter as tk
+            from tkinter import messagebox
+            root = tk.Tk()
+            root.withdraw()  # Esconder a janela principal
+            messagebox.showerror("Erro", f"Erro ao iniciar o programa: {e}\n\nConsulte o arquivo de log para mais detalhes:\n{log_file}")
+        except:
+            # Se não conseguir mostrar a mensagem de erro em uma janela, mostrar no terminal
+            print(f"Erro ao iniciar o programa: {e}")
+            print(f"Consulte o arquivo de log para mais detalhes: {log_file}")
+
+            # Manter o terminal aberto para ver o erro
+            input("Pressione Enter para sair...")
