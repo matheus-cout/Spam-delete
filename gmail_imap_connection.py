@@ -8,8 +8,8 @@ It processes emails in small batches to avoid timeouts.
 import imaplib
 import socket
 import time
-import sys
 import traceback
+import credential_prompt
 
 # Set a timeout for socket operations
 socket.setdefaulttimeout(60)  # 60 seconds timeout
@@ -100,9 +100,9 @@ def main():
     print("This tool will delete all emails in your Gmail Spam folder.")
     print("Press Ctrl+C at any time to stop the process.\n")
 
-    # Gmail credentials
-    username = "souzasoftm@gmail.com"
-    password = "xmxsgunchbfavftq"  # This is an app password, not the actual Gmail password
+    # Obter credenciais do Gmail usando o gerenciador de credenciais
+    print("\nPor favor, forneça suas credenciais do Gmail:")
+    username, password = credential_prompt.get_credentials()
 
     try:
         # Connect to Gmail's IMAP server

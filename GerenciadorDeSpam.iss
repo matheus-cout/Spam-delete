@@ -44,7 +44,9 @@ Source: "build\exe.win-amd64-3.13\python313.dll"; DestDir: "{app}"; Flags: ignor
 Source: "build\exe.win-amd64-3.13\README_SPAM_DELETION.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "build\exe.win-amd64-3.13\configuracao_exclusao_automatica_spam.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "build\exe.win-amd64-3.13\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "icones\gerenciador_spam.ico"; DestDir: "{app}\icones"; Flags: ignoreversion
+Source: "icones\*"; DestDir: "{app}\icones"; Flags: ignoreversion recursesubdirs createallsubdirs
+; Arquivos de dados
+Source: "data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs skipifsourcedoesntexist
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -59,5 +61,5 @@ Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Fil
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [Messages]
-WelcomeLabel2=Este assistente irá guiá-lo através da instalação do [name].%n%nO Gerenciador de Spam do Gmail é uma ferramenta que permite verificar e excluir emails de spam automaticamente.%n%nPara usar esta ferramenta, você precisa ter uma conta do Gmail e ter configurado uma senha de aplicativo.%n%nApós a instalação, você pode configurar o programa para ser executado automaticamente em intervalos regulares usando o Agendador de Tarefas do Windows.
+WelcomeLabel2=Este assistente irá guiá-lo através da instalação do [name].%n%nO Gerenciador de Spam do Gmail é uma ferramenta que permite verificar e excluir emails de spam automaticamente.%n%nPara usar esta ferramenta, você precisa ter uma conta do Gmail e ter configurado uma senha de aplicativo.%n%nSuas credenciais serão armazenadas de forma segura e criptografada.
 FinishedLabel=A instalação do [name] foi concluída com sucesso.%n%nClique em Concluir para sair do assistente de instalação.
