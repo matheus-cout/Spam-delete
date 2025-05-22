@@ -1,0 +1,32 @@
+CONTRATO DE LICENÇA DE USO DO GERENCIADOR DE SPAM DO GMAIL
+
+Este é um contrato de licença entre você (usuário final) e o desenvolvedor do software Gerenciador de Spam do Gmail.
+
+AO INSTALAR, COPIAR OU UTILIZAR O SOFTWARE, VOCÊ CONCORDA COM OS TERMOS DESTA LICENÇA. SE VOCÊ NÃO CONCORDAR COM ESTES TERMOS, NÃO INSTALE, COPIE OU UTILIZE O SOFTWARE.
+
+1. CONCESSÃO DE LICENÇA
+O desenvolvedor concede a você uma licença não exclusiva para instalar e utilizar o software Gerenciador de Spam do Gmail em seu computador pessoal.
+
+2. RESTRIÇÕES
+Você não pode:
+- Modificar, adaptar, traduzir ou criar trabalhos derivados baseados no software
+- Descompilar, fazer engenharia reversa, desmontar ou tentar derivar o código-fonte do software
+- Remover ou alterar quaisquer avisos de direitos autorais ou marcas registradas
+- Vender, alugar, emprestar ou distribuir o software sem autorização prévia por escrito
+
+3. DIREITOS AUTORAIS
+O software é protegido por leis de direitos autorais e tratados internacionais. Todos os direitos, títulos e interesses no software são de propriedade do desenvolvedor.
+
+4. ISENÇÃO DE GARANTIAS
+O SOFTWARE É FORNECIDO "COMO ESTÁ", SEM GARANTIAS DE QUALQUER TIPO, EXPRESSAS OU IMPLÍCITAS, INCLUINDO, MAS NÃO SE LIMITANDO A, GARANTIAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO E NÃO VIOLAÇÃO.
+
+5. LIMITAÇÃO DE RESPONSABILIDADE
+EM NENHUMA CIRCUNSTÂNCIA O DESENVOLVEDOR SERÁ RESPONSÁVEL POR QUAISQUER DANOS DIRETOS, INDIRETOS, INCIDENTAIS, ESPECIAIS, EXEMPLARES OU CONSEQUENCIAIS (INCLUINDO, MAS NÃO SE LIMITANDO A, AQUISIÇÃO DE BENS OU SERVIÇOS SUBSTITUTOS, PERDA DE USO, DADOS OU LUCROS, OU INTERRUPÇÃO DE NEGÓCIOS) CAUSADOS DE QUALQUER FORMA E SOB QUALQUER TEORIA DE RESPONSABILIDADE, SEJA EM CONTRATO, RESPONSABILIDADE ESTRITA OU DELITO (INCLUINDO NEGLIGÊNCIA OU DE OUTRA FORMA) DECORRENTE DE QUALQUER FORMA DO USO DESTE SOFTWARE, MESMO SE AVISADO DA POSSIBILIDADE DE TAIS DANOS.
+
+6. RESCISÃO
+Esta licença é válida até ser rescindida. Seus direitos sob esta licença serão automaticamente rescindidos sem aviso prévio se você não cumprir qualquer termo desta licença. Após a rescisão, você deve destruir todas as cópias do software.
+
+7. LEI APLICÁVEL
+Esta licença será regida e interpretada de acordo com as leis do Brasil.
+
+AO CLICAR EM "ACEITO" OU INSTALAR O SOFTWARE, VOCÊ CONFIRMA QUE LEU E CONCORDA COM OS TERMOS DESTA LICENÇA.

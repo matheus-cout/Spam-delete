@@ -1,0 +1,11 @@
+2025-05-21 18:26:17,735 - INFO - === Gmail Spam Email Deletion Tool ===
+2025-05-21 18:26:17,736 - INFO - Connecting to imap.gmail.com...
+2025-05-21 18:26:18,289 - INFO - Logging in as souzasoftm@gmail.com...
+2025-05-21 18:26:19,378 - INFO - Login successful
+2025-05-21 18:26:19,378 - INFO - Selecting folder: [Gmail]/Spam
+2025-05-21 18:26:20,112 - INFO - No emails found in Spam folder
+2025-05-21 18:26:20,552 - INFO - Logged out successfully
+2025-05-21 18:26:20,553 - INFO - === Summary ===
+2025-05-21 18:26:20,553 - INFO - Total emails deleted: 0
+2025-05-21 18:26:20,554 - INFO - Total time: 2.82 seconds
+2025-05-21 18:26:20,554 - INFO - Script execution completed
