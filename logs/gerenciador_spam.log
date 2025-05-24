@@ -1,0 +1,11 @@
+2025-05-24 08:41:25,253 - INFO - Banco de dados inicializado com sucesso
+2025-05-24 08:41:25,254 - INFO - Iniciando Gerenciador de Spam do Gmail
+2025-05-24 08:41:25,420 - INFO - Inicializando GmailSpamManagerApp
+2025-05-24 08:41:25,420 - INFO - Ícone encontrado: icones\gerenciador_spam.ico
+2025-05-24 08:41:25,467 - INFO - Criando widgets da interface
+2025-05-24 08:41:25,501 - INFO - Obtendo lista de emails salvos
+2025-05-24 08:41:25,508 - INFO - Emails salvos encontrados: 2
+2025-05-24 08:41:25,546 - INFO - Criando combobox para emails salvos
+2025-05-24 08:41:25,600 - INFO - Widgets criados com sucesso
+2025-05-24 08:41:25,649 - INFO - Carregando credenciais salvas
+2025-05-24 08:41:25,652 - INFO - Inicialização concluída com sucesso

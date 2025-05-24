@@ -113,9 +113,22 @@ def main():
             gui_app = loaded_modules["gui_app"]
             gui_app.main()
         else:
-            # Fallback: tentar importar normalmente
-            import gui_app
-            gui_app.main()
+            # Fallback: tentar importar normalmente (funciona melhor com PyInstaller)
+            logging.info("Tentando importar gui_app normalmente...")
+            try:
+                import gui_app
+                gui_app.main()
+            except ImportError as e:
+                logging.error(f"Erro ao importar gui_app: {e}")
+                # Último recurso: executar diretamente
+                logging.info("Tentando executar gui_app diretamente...")
+                import sys
+                import os
+                gui_path = os.path.join(application_path, "gui_app.py")
+                if os.path.exists(gui_path):
+                    exec(open(gui_path).read())
+                else:
+                    raise ImportError("Não foi possível encontrar ou executar gui_app")
 
         return 0
 

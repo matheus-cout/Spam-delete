@@ -2,11 +2,11 @@
 
 
 a = Analysis(
-    ['launcher.py'],
+    ['gerenciador_spam_integrado.py'],
     pathex=[],
     binaries=[],
     datas=[],
-    hiddenimports=['tkinter', 'tkinter.ttk', 'tkinter.messagebox', 'tkinter.simpledialog', 'google.auth', 'google.auth.transport.requests', 'google_auth_oauthlib.flow', 'googleapiclient.discovery', 'googleapiclient.errors', 'sqlite3', 'hashlib', 'base64', 'imaplib', 'email.mime.text', 'email.mime.multipart'],
+    hiddenimports=[],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -35,4 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['icones\\gerenciador_spam.ico'],
 )

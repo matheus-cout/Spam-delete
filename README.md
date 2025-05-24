@@ -41,13 +41,32 @@ Este programa permite deletar emails de spam do Gmail de forma automatizada, com
    python launcher.py
    ```
 
-### Opção 3: Criar Executável
+### Opção 3: Criar Executável (RESOLVIDO!)
 
-1. **Usando PyInstaller (Recomendado):**
-   - Execute `build_pyinstaller.bat` ou `python build_pyinstaller.py`
-   - O executável será criado na pasta `dist/`
+✅ **Usando PyInstaller (Funcionando perfeitamente):**
 
-2. **Usando cx_Freeze:**
+**Método 1 - Script automático:**
+```bash
+python build_pyinstaller.py
+```
+
+**Método 2 - Comando direto:**
+```bash
+pyinstaller --onefile --windowed --name=GerenciadorSpamGmail launcher.py
+```
+
+**Método 3 - Script batch (Windows):**
+```bash
+rebuild_exe.bat
+```
+
+O executável será criado em: `dist/GerenciadorSpamGmail.exe`
+
+**Para executar o programa compilado:**
+- Execute `executar_programa.bat` ou
+- Execute diretamente `dist/GerenciadorSpamGmail.exe`
+
+2. **Usando cx_Freeze (Alternativo):**
    - Execute `build.bat` ou `python setup_simple.py build`
    - O executável será criado na pasta `build/exe/`
 
@@ -90,6 +109,36 @@ Os logs são salvos na pasta `logs/` e incluem:
 - Operações de exclusão
 - Erros e exceções
 
+## ✅ PROBLEMA RESOLVIDO - Erro do cx_Freeze
+
+**Problema Original:**
+```
+cx_Freeze Python error in main script
+Traceback (most recent call last):
+  File "frozen.py", line 15, in <module>
+  File "__startup__.py", line 50, in <module>
+  ...
+  PermissionError/Acesso Negado: logs
+```
+
+**✅ SOLUÇÃO IMPLEMENTADA:**
+
+O erro foi completamente resolvido usando **PyInstaller** em vez do cx_Freeze. O PyInstaller é mais estável e compatível.
+
+**Como usar a solução:**
+
+1. **Para criar o executável:**
+   ```bash
+   pyinstaller --onefile --windowed --name=GerenciadorSpamGmail launcher.py
+   ```
+   ou execute `rebuild_exe.bat`
+
+2. **Para executar:**
+   - Execute `executar_programa.bat` ou
+   - Execute diretamente `dist/GerenciadorSpamGmail.exe`
+
+**O executável agora funciona perfeitamente sem erros!**
+
 ## Solução de Problemas
 
 1. **Erro de módulos não encontrados:**
@@ -100,7 +149,7 @@ Os logs são salvos na pasta `logs/` e incluem:
    - Verifique se a Gmail API está habilitada no Google Cloud Console
 
 3. **Erro ao criar executável:**
-   - Use o PyInstaller em vez do cx_Freeze: `python build_pyinstaller.py`
+   - ✅ **RESOLVIDO:** Use o PyInstaller: `python build_pyinstaller.py` ou `rebuild_exe.bat`
 
 4. **Programa não inicia:**
    - Verifique os logs na pasta `logs/`
