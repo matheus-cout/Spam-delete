@@ -83,3 +83,26 @@
 2025-05-24 11:04:57,150 - INFO - Email inserido: False
 2025-05-24 11:04:57,151 - INFO - Email cancelado pelo usuário
 2025-05-24 11:04:57,151 - INFO - Resultado do prompt: email=False, password=False
+2025-05-24 11:21:12,484 - INFO - Banco de dados inicializado com sucesso
+2025-05-24 11:21:12,484 - INFO - Iniciando Gerenciador de Spam do Gmail
+2025-05-24 11:21:12,604 - INFO - Inicializando GmailSpamManagerApp
+2025-05-24 11:21:12,604 - INFO - Ícone encontrado: icones\gerenciador_spam.ico
+2025-05-24 11:21:12,647 - INFO - Criando widgets da interface
+2025-05-24 11:21:12,651 - INFO - Obtendo lista de emails salvos
+2025-05-24 11:21:12,653 - INFO - Emails salvos encontrados: 1
+2025-05-24 11:21:12,653 - INFO - Criando combobox para emails salvos
+2025-05-24 11:21:12,673 - INFO - Widgets criados com sucesso
+2025-05-24 11:21:12,674 - INFO - Carregando credenciais salvas
+2025-05-24 11:21:12,675 - INFO - Inicialização concluída com sucesso
+2025-05-24 11:26:31,246 - INFO - Banco de dados inicializado com sucesso
+2025-05-24 11:26:31,246 - INFO - Iniciando Gerenciador de Spam do Gmail
+2025-05-24 11:26:31,365 - INFO - Inicializando GmailSpamManagerApp
+2025-05-24 11:26:31,366 - INFO - Ícone encontrado: icones\gerenciador_spam.ico
+2025-05-24 11:26:31,407 - INFO - Criando widgets da interface
+2025-05-24 11:26:31,410 - INFO - Obtendo lista de emails salvos
+2025-05-24 11:26:31,412 - INFO - Emails salvos encontrados: 1
+2025-05-24 11:26:31,412 - INFO - Criando combobox para emails salvos
+2025-05-24 11:26:31,432 - INFO - Widgets criados com sucesso
+2025-05-24 11:26:31,432 - INFO - Carregando credenciais salvas
+2025-05-24 11:26:31,434 - INFO - Inicialização concluída com sucesso
+2025-05-24 11:26:36,982 - INFO - Credenciais removidas para mateuzin002011.mf@gmail.com
