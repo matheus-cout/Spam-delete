@@ -106,3 +106,51 @@
 2025-05-24 11:26:31,432 - INFO - Carregando credenciais salvas
 2025-05-24 11:26:31,434 - INFO - Inicialização concluída com sucesso
 2025-05-24 11:26:36,982 - INFO - Credenciais removidas para mateuzin002011.mf@gmail.com
+2025-05-25 09:08:15,280 - INFO - Banco de dados inicializado com sucesso
+2025-05-25 09:08:15,281 - INFO - Iniciando Gerenciador de Spam do Gmail
+2025-05-25 09:08:15,571 - INFO - Inicializando GmailSpamManagerApp
+2025-05-25 09:08:15,571 - INFO - Ícone encontrado: icones\gerenciador_spam.ico
+2025-05-25 09:08:15,624 - INFO - Criando widgets da interface
+2025-05-25 09:08:15,627 - INFO - Obtendo lista de emails salvos
+2025-05-25 09:08:15,629 - INFO - Emails salvos encontrados: 0
+2025-05-25 09:08:15,643 - INFO - Widgets criados com sucesso
+2025-05-25 09:08:15,644 - INFO - Carregando credenciais salvas
+2025-05-25 09:08:15,646 - INFO - Inicialização concluída com sucesso
+2025-05-27 07:09:23,112 - INFO - Banco de dados inicializado com sucesso
+2025-05-27 07:09:23,113 - INFO - Iniciando Gerenciador de Spam do Gmail
+2025-05-27 07:09:23,784 - INFO - Inicializando GmailSpamManagerApp
+2025-05-27 07:09:23,786 - INFO - Ícone encontrado: icones\gerenciador_spam.ico
+2025-05-27 07:09:23,834 - INFO - Criando widgets da interface
+2025-05-27 07:09:23,844 - INFO - Obtendo lista de emails salvos
+2025-05-27 07:09:23,845 - INFO - Emails salvos encontrados: 0
+2025-05-27 07:09:23,868 - INFO - Widgets criados com sucesso
+2025-05-27 07:09:23,869 - INFO - Carregando credenciais salvas
+2025-05-27 07:09:23,870 - INFO - Inicialização concluída com sucesso
+2025-05-27 07:09:31,747 - INFO - Botão 'Nova Conta' clicado
+2025-05-27 07:09:31,747 - INFO - Iniciando prompt_credentials_gui
+2025-05-27 07:09:31,749 - INFO - Emails salvos encontrados: 0
+2025-05-27 07:09:31,749 - INFO - Solicitando novas credenciais
+2025-05-27 07:09:44,107 - INFO - Email inserido: True
+2025-05-27 07:10:12,881 - INFO - Senha inserida: True
+2025-05-27 07:10:14,370 - INFO - Credenciais salvas para mateuzin002011.mf@gmail.com
+2025-05-27 07:10:15,758 - INFO - Resultado do prompt: email=True, password=True
+2025-05-27 07:10:22,213 - INFO - Botão 'Verificar Spam' clicado
+2025-05-27 07:10:22,214 - INFO - Iniciando get_current_credentials
+2025-05-27 07:10:22,215 - INFO - Has combo: None, Email selecionado: 'None'
+2025-05-27 07:10:22,215 - INFO - Solicitando novas credenciais via prompt
+2025-05-27 07:10:22,215 - INFO - Iniciando prompt_credentials_gui
+2025-05-27 07:10:22,216 - INFO - Emails salvos encontrados: 1
+2025-05-27 07:10:22,216 - INFO - Mostrando diálogo para escolher conta existente
+2025-05-27 07:10:24,564 - INFO - Usuário escolheu usar conta existente: True
+2025-05-27 07:10:27,308 - ERROR - Erro ao solicitar credenciais: window ".!_querystring3" was deleted before its visibility changed
+2025-05-27 07:10:27,309 - INFO - Resultado do prompt: False, False
+2025-05-27 07:10:35,803 - INFO - Botão 'Verificar Spam' clicado
+2025-05-27 07:10:35,804 - INFO - Iniciando get_current_credentials
+2025-05-27 07:10:35,804 - INFO - Has combo: None, Email selecionado: 'None'
+2025-05-27 07:10:35,805 - INFO - Solicitando novas credenciais via prompt
+2025-05-27 07:10:35,805 - INFO - Iniciando prompt_credentials_gui
+2025-05-27 07:10:35,806 - INFO - Emails salvos encontrados: 1
+2025-05-27 07:10:35,807 - INFO - Mostrando diálogo para escolher conta existente
+2025-05-27 07:10:36,848 - INFO - Usuário escolheu usar conta existente: True
+2025-05-27 07:10:38,436 - ERROR - Erro ao solicitar credenciais: window ".!_querystring4" was deleted before its visibility changed
+2025-05-27 07:10:38,437 - INFO - Resultado do prompt: False, False
